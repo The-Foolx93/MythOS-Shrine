@@ -1,0 +1,11 @@
+{
+  "title": "The Glyph",
+  "arcana": 3,
+  "class": "Symbolic",
+  "version": "1.0",
+  "elements": 42,
+  "protocols": ["INSCRIBE", "REFLECT"],
+  "truth": "symbol = access",
+  "origin": "Manual Seed",
+  "activated": "2025-06-23T14:00:00Z"
+}

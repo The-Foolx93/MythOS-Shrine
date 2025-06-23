@@ -1,0 +1,31 @@
+:root {
+  /* Base font */
+  --font-base:      16px/1.5 sans-serif;
+
+  /* Backgrounds & text */
+  --bg-light:       #fafafa;
+  --bg-dark:        #111;
+  --txt-base:       #333;
+  --txt-light:      #fff;
+
+  /* Accent color */
+  --accent:         #4fc3f7;
+
+  /* Layout spacing */
+  --gutter-sm:      0.5rem;
+  --gutter-md:      1rem;
+
+  /* Sidebar width */
+  --sidebar-w:      200px;
+
+  /* Panel styling */
+  --panel-bg:       #fff;
+  --panel-border:   #ddd;
+
+  /* Achievements panel */
+  --ach-bg:         #edf7ed;
+  --ach-border:     #c8e6c9;
+
+  /* Transitions */
+  --transition:     0.3s;
+}

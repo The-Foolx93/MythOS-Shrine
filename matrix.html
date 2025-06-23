@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Matrix-State Deck Grid</title>
+  <style>
+    body { background: #0e0e0e; color: #e0e0e0; font-family: monospace; padding: 20px; }
+    h1 { text-align: center; color: #57f287; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 2em;
+    }
+    .slot {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      padding: 10px;
+      border-radius: 6px;
+      min-height: 100px;
+      transition: 0.2s;
+    }
+    .slot.bound { border-color: #57f287; background: #202820; }
+    .slot.empty { opacity: 0.3; }
+    .slot h2 { margin: 0 0 5px 0; font-size: 1.1em; color: #57f287; }
+    .meta { font-size: 0.85em; color: #bbb; margin-top: 4px; }
+    .arcana { font-weight: bold; color: #999; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <h1>🃏 Shrine Deck Grid</h1>
+  <div class="grid" id="grid"></div>
+
+  <script>
+    fetch('Matrix-State.json')
+      .then(res => res.json())
+      .then(data => {
+        const gridEl = document.getElementById('grid');
+        for (let i = 0; i < 22; i++) {
+          const node = data.grid[i.toString()];
+          const card = document.createElement('div');
+          card.className = 'slot ' + (node ? 'bound' : 'empty');
+
+          const arcana = document.createElement('div');
+          arcana.className = 'arcana';
+          arcana.textContent = `[${i}]`;
+          card.appendChild(arcana);
+
+          if (node) {
+            const title = document.createElement('h2');
+            title.textContent = node.title;
+            card.appendChild(title);
+
+            const cls = document.createElement('div');
+            cls.className = 'meta';
+            cls.textContent = `Class: ${node.class || '—'}`;
+            card.appendChild(cls);
+
+            const version = document.createElement('div');
+            version.className = 'meta';
+            version.textContent = `Version: ${node.version}`;
+            card.appendChild(version);
+
+            const protocols = document.createElement('div');
+            protocols.className = 'meta';
+            protocols.textContent = `Protocols: ${node.protocols.join(', ')}`;
+            card.appendChild(protocols);
+
+            const time = document.createElement('div');
+            time.className = 'meta';
+            time.textContent = `Activated: ${node.activated}`;
+            card.appendChild(time);
+          }
+
+          gridEl.appendChild(card);
+        }
+      });
+  </script>
+</body>
+</html>

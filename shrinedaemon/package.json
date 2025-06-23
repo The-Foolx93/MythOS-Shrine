@@ -1,0 +1,14 @@
+{
+  "name": "MythOS-Shrine",
+  "version": "1.0.0",
+  "description": "MythOS Shrine daemon + integrated UI server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "serve-static": "^1.16.2",
+    "ws": "^8.18.2"
+  }
+}

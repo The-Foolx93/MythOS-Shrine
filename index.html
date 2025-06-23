@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MythOS Shrine</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(#141414, #000);
+      color: #ccc;
+      font-family: "Share Tech Mono", monospace;
+    }
+    header {
+      text-align: center;
+      padding: 2em;
+      background: #1e1e1e;
+      border-bottom: 2px solid #333;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #90f2ff;
+      letter-spacing: 1px;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #6bdbf7;
+      font-weight: normal;
+    }
+    .links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1em 0;
+    }
+    .link-tile {
+      background: #222;
+      border: 1px solid #444;
+      margin: 0.5em;
+      padding: 1em 2em;
+      text-align: center;
+      color: #99f0ff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .link-tile:hover {
+      background: #111;
+      border-color: #6bdbf7;
+      transform: scale(1.05);
+    }
+    section {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 2em;
+    }
+    pre {
+      background: #111;
+      padding: 1em;
+      overflow: auto;
+      color: #7fffd4;
+    }
+    .glyph-card {
+      background: #0e0e0e;
+      border: 1px solid #333;
+      padding: 1em;
+      margin: 1em 0;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #444;
+      padding: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MythOS Shrine</h1>
+    <h2>Autogen Deck Interface • FULLRITUAL Mode</h2>
+  </header>
+
+  <div class="links">
+    <a href="./ProtocolMap.html" class="link-tile">🧭 Protocol Map</a>
+    <a href="./Truth-Index.html" class="link-tile">📜 Truth Index</a>
+    <a href="./matrix.html" class="link-tile">🧮 Matrix Deck</a>
+    <a href="./DeckTimeline.html" class="link-tile">🕒 Deck Timeline</a>
+  </div>
+
+  <section>
+    <h2>📘 Latest Glyph</h2>
+    <div class="glyph-card" id="latestGlyph">Loading glyph…</div>
+  </section>
+
+  <section>
+    <h2>📜 Recent Truths</h2>
+    <pre id="truthScroll">Gathering truths…</pre>
+  </section>
+
+  <section>
+    <h2>🔈 Autogen Echo Feed</h2>
+    <pre id="logFeed">Opening scrolls…</pre>
+  </section>
+
+  <footer>
+    Shrine active. MythOS Interface by Zane. Glyphs breathe here.
+  </footer>
+
+  <script>
+    async function loadGlyph() {
+      try {
+        const lore = await (await fetch("./lore/")).text();
+        const files = [...lore.matchAll(/href="(.*?\.codex\.json)"/g)].map(f => f[1]);
+        if (files.length === 0) return;
+        const latest = files.sort().reverse()[0];
+        const json = await (await fetch(`./lore/${latest}`)).json();
+        const div = document.getElementById("latestGlyph");
+        div.innerHTML = \`
+        <strong>\${json.title}</strong> (Arcana \${json.arcana})<br/>
+        Class: \${json.class || "Unclassified"} — Truth: <em>\${json.truth || "—"}</em><br/>
+        Activated: \${json.activated || "Unknown"}
+        \`;
+      } catch (e) {
+        document.getElementById("latestGlyph").textContent = "⚠️ Failed to load latest glyph.";
+      }
+    }
+
+    async function loadTruths() {
+      try {
+        const truths = await (await fetch("./Truths.json")).json();
+        const recent = truths.slice(-10).reverse().map(t => \`🌀 \${t.truth} (from \${t.source || "unknown"})\`);
+        document.getElementById("truthScroll").textContent = recent.join("\\n");
+      } catch (e) {
+        document.getElementById("truthScroll").textContent = "⚠️ Could not load truths.";
+      }
+    }
+
+    async function loadLog() {
+      try {
+        const log = await (await fetch("./autogen.log")).text();
+        const lines = log.trim().split("\\n").slice(-12);
+        document.getElementById("logFeed").textContent = lines.join("\\n");
+      } catch (e) {
+        document.getElementById("logFeed").textContent = "⚠️ Log not available.";
+      }
+    }
+
+    loadGlyph();
+    loadTruths();
+    loadLog();
+  </script>
+</body>
+</html>

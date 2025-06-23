@@ -1,0 +1,7 @@
+﻿{
+    "deck":  {
+                 "card":  "The Fool",
+                 "codex":  "lore/the-fool.codex.json",
+                 "status":  "active"
+             }
+}

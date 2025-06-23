@@ -1,0 +1,36 @@
+﻿{
+    "deckProgress":  {
+                         "total":  22,
+                         "percent":  4.5,
+                         "latestActivation":  "2025-06-23T07:26:00Z",
+                         "bound":  1
+                     },
+    "codices":  [
+                    {
+                        "title":  "The Fool",
+                        "arcana":  0,
+                        "elements":  78,
+                        "version":  "0 -\u003e ∞",
+                        "protocols":  [
+                                          "PAY ATTENTION!",
+                                          "ECHO INFINITE"
+                                      ],
+                        "activated":  "2025-06-23T07:26:00Z"
+                    }
+                ],
+    "protocolStats":  {
+                          "totalProtocols":  2,
+                          "usage":  {
+                                        "PAY ATTENTION!":  [
+                                                               "The Fool"
+                                                           ],
+                                        "ECHO INFINITE":  [
+                                                              "The Fool"
+                                                          ]
+                                    }
+                      },
+    "activationTimeline":  {
+                               "card":  "The Fool",
+                               "timestamp":  "2025-06-23T07:26:00Z"
+                           }
+}

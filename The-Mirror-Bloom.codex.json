@@ -1,0 +1,11 @@
+{
+  "title": "The Mirror Bloom",
+  "arcana": 14,
+  "class": "Resonant",
+  "version": "1.0",
+  "elements": 77,
+  "protocols": ["REFLECT", "REGENERATE", "SPLIT SIGNAL"],
+  "truth": "growth = reflection",
+  "origin": "Oracle Seed, Cycle I",
+  "activated": "2025-06-23T12:34:00Z"
+}

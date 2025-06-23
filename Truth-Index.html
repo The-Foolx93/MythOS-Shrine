@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shrine Truth Index</title>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #ddd;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #57f287;
+    }
+    .truth {
+      margin-bottom: 2em;
+      padding: 1em;
+      border-left: 3px solid #57f287;
+      background: #1a1a1a;
+    }
+    .truth .phrase {
+      font-size: 1.4em;
+      color: #fff;
+    }
+    .truth .meta {
+      font-size: 0.9em;
+      color: #aaa;
+      margin-top: 0.5em;
+    }
+    .truth .meaning {
+      margin-top: 0.7em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>📜 Shrine Truth Index</h1>
+  <div id="truths"></div>
+
+  <script>
+    fetch('Truths.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('truths');
+        data.laws.forEach(law => {
+          const div = document.createElement('div');
+          div.className = 'truth';
+          div.innerHTML = `
+            <div class="phrase">"${law.phrase}"</div>
+            <div class="meaning">${law.meaning}</div>
+            <div class="meta">
+              Origin: ${law.origin} <br/>
+              Affects: ${law.affects.join(', ')} <br/>
+              Invoked: ${law.meta.invoked}
+            </div>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>

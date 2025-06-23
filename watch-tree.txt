@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+// watch-tree.js — auto-regenerate ui/Tree.txt on any FS change
+
+const { exec } = require('child_process');
+const chokidar = require('chokidar');
+const path     = require('path');
+
+const ROOT    = path.resolve(__dirname);
+const OUTFILE = path.join(ROOT, 'ui', 'Tree.txt');
+
+// 1) generate Tree.txt (Windows & *nix)
+function genTree() {
+  const cmd = process.platform === 'win32'
+    ? `tree "${ROOT}" /A > "${OUTFILE}"`
+    : `tree -a -F "${ROOT}" > "${OUTFILE}"`;
+  exec(cmd, err => {
+    if (err) console.error('⚠️  tree failed:', err);
+    else     console.log(new Date().toLocaleTimeString(), '→ ui/Tree.txt updated');
+  });
+}
+
+// initial dump
+genTree();
+
+// 2) watch everything except node_modules & the output file
+chokidar.watch(ROOT, {
+  ignored:   [ /node_modules/, OUTFILE ],
+  persistent: true,
+})
+.on('all', () => {
+  clearTimeout(genTree._t);
+  genTree._t = setTimeout(genTree, 100);
+});

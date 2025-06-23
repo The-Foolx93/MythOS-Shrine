@@ -1,0 +1,24 @@
+﻿{
+    "grid":  {
+                 "0":  {
+                           "version":  "0 -\u003e ∞",
+                           "class":  null,
+                           "elements":  78,
+                           "protocols":  [
+                                             "PAY ATTENTION!",
+                                             "ECHO INFINITE"
+                                         ],
+                           "activated":  "2025-06-23T07:26:00Z",
+                           "title":  "The Fool"
+                       }
+             },
+    "meta":  {
+                 "percentComplete":  4.5,
+                 "boundCount":  1,
+                 "lastUpdated":  "2025-06-23 09:41:14"
+             },
+    "timeline":  {
+                     "card":  "The Fool",
+                     "timestamp":  "2025-06-23T07:26:00Z"
+                 }
+}

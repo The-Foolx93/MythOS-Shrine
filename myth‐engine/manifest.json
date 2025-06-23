@@ -1,0 +1,7 @@
+﻿{
+    "deck":  {
+                 "card":  null,
+                 "codex":  "lore/.codex.json",
+                 "status":  "active"
+             }
+}
