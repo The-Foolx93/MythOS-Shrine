@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.4",
+    "elements":  [
+                     "Fire",
+                     "Stone"
+                 ],
+    "class":  "Architect",
+    "arcana":  4,
+    "protocols":  [
+                      "SYS_PERMISSIONS",
+                      "BORDER_LOGIC"
+                  ],
+    "activated":  "2026-03-10 16:50:12",
+    "title":  "The Emperor"
+}

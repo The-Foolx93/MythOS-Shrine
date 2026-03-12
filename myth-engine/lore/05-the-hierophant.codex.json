@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.5",
+    "elements":  [
+                     "Earth",
+                     "Spirit"
+                 ],
+    "class":  "Mentor",
+    "arcana":  5,
+    "protocols":  [
+                      "MSG_TRANSMIT",
+                      "LEGACY_CODE"
+                  ],
+    "activated":  "2026-03-10 16:50:42",
+    "title":  "The Hierophant"
+}

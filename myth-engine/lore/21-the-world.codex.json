@@ -1,0 +1,14 @@
+{
+    "version":  "2.0.0",
+    "elements":  [
+                     "All"
+                 ],
+    "class":  "Totality",
+    "arcana":  21,
+    "protocols":  [
+                      "WORLD_SYNC",
+                      "REALITY_INTEGRATION"
+                  ],
+    "activated":  "2026-03-10 17:00:23",
+    "title":  "The World"
+}

@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.9",
+    "elements":  [
+                     "Earth",
+                     "Light"
+                 ],
+    "class":  "Seeker",
+    "arcana":  9,
+    "protocols":  [
+                      "INDEX_SEARCH",
+                      "INTERNAL_QUERY"
+                  ],
+    "activated":  "2026-03-10 16:54:55",
+    "title":  "The Hermit"
+}

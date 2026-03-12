@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.7",
+    "elements":  [
+                     "Water",
+                     "Force"
+                 ],
+    "class":  "Vector",
+    "arcana":  7,
+    "protocols":  [
+                      "DRIVE_ENGINE",
+                      "VECTOR_PATH"
+                  ],
+    "activated":  "2026-03-10 16:52:43",
+    "title":  "The Chariot"
+}

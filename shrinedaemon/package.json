@@ -7,6 +7,9 @@
     "start": "node src/index.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.11.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.3.1",
     "express": "^4.21.2",
     "serve-static": "^1.16.2",
     "ws": "^8.18.2"

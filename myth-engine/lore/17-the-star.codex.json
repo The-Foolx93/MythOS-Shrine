@@ -1,0 +1,15 @@
+{
+    "version":  "1.1.7",
+    "elements":  [
+                     "Air",
+                     "Aether"
+                 ],
+    "class":  "Beacon",
+    "arcana":  17,
+    "protocols":  [
+                      "TELEMETRY_SYNC",
+                      "EXTERNAL_GUIDE"
+                  ],
+    "activated":  "2026-03-10 16:58:31",
+    "title":  "The Star"
+}

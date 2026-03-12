@@ -1,0 +1,17 @@
+{
+    "version":  "1.1.0",
+    "elements":  [
+                     "Fire",
+                     "Air",
+                     "Water",
+                     "Earth"
+                 ],
+    "class":  "Engine",
+    "arcana":  10,
+    "protocols":  [
+                      "RNG_GENERATOR",
+                      "PROBABILITY_MATRIX"
+                  ],
+    "activated":  "2026-03-10 16:55:20",
+    "title":  "The Wheel of Fortune"
+}

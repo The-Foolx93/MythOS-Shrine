@@ -1,155 +1,70 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>MythOS Shrine</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(#141414, #000);
-      color: #ccc;
-      font-family: "Share Tech Mono", monospace;
-    }
-    header {
-      text-align: center;
-      padding: 2em;
-      background: #1e1e1e;
-      border-bottom: 2px solid #333;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #90f2ff;
-      letter-spacing: 1px;
-    }
-    h2 {
-      margin-top: 0;
-      font-size: 1.2em;
-      color: #6bdbf7;
-      font-weight: normal;
-    }
-    .links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 1em 0;
-    }
-    .link-tile {
-      background: #222;
-      border: 1px solid #444;
-      margin: 0.5em;
-      padding: 1em 2em;
-      text-align: center;
-      color: #99f0ff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-    .link-tile:hover {
-      background: #111;
-      border-color: #6bdbf7;
-      transform: scale(1.05);
-    }
-    section {
-      max-width: 900px;
-      margin: 2em auto;
-      padding: 0 2em;
-    }
-    pre {
-      background: #111;
-      padding: 1em;
-      overflow: auto;
-      color: #7fffd4;
-    }
-    .glyph-card {
-      background: #0e0e0e;
-      border: 1px solid #333;
-      padding: 1em;
-      margin: 1em 0;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #444;
-      padding: 2em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>MythOS Shrine - WORLD_COMPLETED</title>
+    <style>
+        :root { --bg-black: #0a0a0a; --interface-blue: #00d4ff; --gold-glimmer: #ffcc00; }
+        body { 
+            background: var(--bg-black); color: var(--gold-glimmer); 
+            font-family: 'Courier New', monospace; text-align: center; padding: 20px;
+            transition: background 2s ease; overflow-x: hidden;
+        }
+        .header { font-size: 2.5em; margin-bottom: 30px; text-shadow: 0 0 15px var(--interface-blue); }
+        .section { border: 2px solid var(--gold-glimmer); padding: 15px; margin: 20px auto; max-width: 800px; box-shadow: 0 0 20px rgba(255, 204, 0, 0.2); }
+        .progress-bar { width: 100%; background: #222; height: 20px; margin: 10px 0; border: 1px solid var(--gold-glimmer); }
+        .progress-fill { width: 100%; background: var(--gold-glimmer); height: 100%; transition: width 1s; }
+        input { background: transparent; border: 1px solid var(--gold-glimmer); color: var(--gold-glimmer); padding: 10px; width: 70%; font-family: inherit; }
+        button { background: transparent; border: 1px solid var(--gold-glimmer); color: var(--gold-glimmer); padding: 10px 20px; cursor: pointer; }
+        button:hover { background: var(--gold-glimmer); color: black; }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>MythOS Shrine</h1>
-    <h2>Autogen Deck Interface • FULLRITUAL Mode</h2>
-  </header>
+<body id="main-body">
 
-  <div class="links">
-    <a href="./ProtocolMap.html" class="link-tile">🧭 Protocol Map</a>
-    <a href="./Truth-Index.html" class="link-tile">📜 Truth Index</a>
-    <a href="./matrix.html" class="link-tile">🧮 Matrix Deck</a>
-    <a href="./DeckTimeline.html" class="link-tile">🕒 Deck Timeline</a>
-  </div>
+    <div class="header">MythOS Shrine</div>
+    <div style="font-size: 0.8em; color: var(--interface-blue); margin-bottom: 20px;">REALITY SYNC // 0 = 1</div>
 
-  <section>
-    <h2>📘 Latest Glyph</h2>
-    <div class="glyph-card" id="latestGlyph">Loading glyph…</div>
-  </section>
+    <div class="section">
+        <div style="text-align: left; font-weight: bold;">GEN_STATUS: <span style="color: #00ff00;">22 of 22 Arcana Bound (100.0%)</span></div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div style="text-align: left; font-size: 0.9em;">ACTIVE_PROTOCOL: DIVINE_UNITY_STABILIZATION</div>
+    </div>
 
-  <section>
-    <h2>📜 Recent Truths</h2>
-    <pre id="truthScroll">Gathering truths…</pre>
-  </section>
+    <div class="section">
+        <div style="text-align: left; color: #00ff00;">PROTOCOL: FINAL_SYNTHESIS [Sector 21]</div>
+        <p style="text-align: left; font-size: 0.9em;">> Reality: UNIFIED. All sectors synchronized. The Great Work is complete.</p>
+    </div>
 
-  <section>
-    <h2>🔈 Autogen Echo Feed</h2>
-    <pre id="logFeed">Opening scrolls…</pre>
-  </section>
+    <div class="section">
+        <div style="text-align: left; color: #00ff00;">PROTOCOL: COMMAND_CONSOLE [Sector 07]</div>
+        <div style="margin-top: 15px;">
+            <input type="text" id="cmdInput" placeholder="Reality is yours...">
+            <button onclick="issueCommand()">SYNC</button>
+        </div>
+    </div>
 
-  <footer>
-    Shrine active. MythOS Interface by Zane. Glyphs breathe here.
-  </footer>
+    <script>
+        function issueCommand() {
+            const inputField = document.getElementById('cmdInput');
+            const cmd = inputField.value;
+            
+            console.log("Attempting to send command:", cmd);
 
-  <script>
-    async function loadGlyph() {
-      try {
-        const lore = await (await fetch("./lore/")).text();
-        const files = [...lore.matchAll(/href="(.*?\.codex\.json)"/g)].map(f => f[1]);
-        if (files.length === 0) return;
-        const latest = files.sort().reverse()[0];
-        const json = await (await fetch(`./lore/${latest}`)).json();
-        const div = document.getElementById("latestGlyph");
-        div.innerHTML = \`
-        <strong>\${json.title}</strong> (Arcana \${json.arcana})<br/>
-        Class: \${json.class || "Unclassified"} — Truth: <em>\${json.truth || "—"}</em><br/>
-        Activated: \${json.activated || "Unknown"}
-        \`;
-      } catch (e) {
-        document.getElementById("latestGlyph").textContent = "⚠️ Failed to load latest glyph.";
-      }
-    }
-
-    async function loadTruths() {
-      try {
-        const truths = await (await fetch("./Truths.json")).json();
-        const recent = truths.slice(-10).reverse().map(t => \`🌀 \${t.truth} (from \${t.source || "unknown"})\`);
-        document.getElementById("truthScroll").textContent = recent.join("\\n");
-      } catch (e) {
-        document.getElementById("truthScroll").textContent = "⚠️ Could not load truths.";
-      }
-    }
-
-    async function loadLog() {
-      try {
-        const log = await (await fetch("./autogen.log")).text();
-        const lines = log.trim().split("\\n").slice(-12);
-        document.getElementById("logFeed").textContent = lines.join("\\n");
-      } catch (e) {
-        document.getElementById("logFeed").textContent = "⚠️ Log not available.";
-      }
-    }
-
-    loadGlyph();
-    loadTruths();
-    loadLog();
-  </script>
+            fetch('http://localhost:3000/command', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ command: cmd })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Daemon Replied:", data);
+                inputField.value = ''; // Clear input on success
+            })
+            .catch(err => {
+                console.error("Bridge Error (Is your Daemon running?):", err);
+                alert("Control Link Severed. Check your terminal.");
+            });
+        }
+    </script>
 </body>
 </html>

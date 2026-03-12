@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.8",
+    "elements":  [
+                     "Fire",
+                     "Vitality"
+                 ],
+    "class":  "Fortitude",
+    "arcana":  8,
+    "protocols":  [
+                      "LIMITER_GATE",
+                      "RESILIENCE_SYNC"
+                  ],
+    "activated":  "2026-03-10 16:54:23",
+    "title":  "Strength"
+}

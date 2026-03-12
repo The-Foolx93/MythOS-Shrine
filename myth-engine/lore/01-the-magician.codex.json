@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.1",
+    "elements":  [
+                     "Mercury",
+                     "Fire"
+                 ],
+    "class":  "Creator",
+    "arcana":  1,
+    "protocols":  [
+                      "TRANSVERSE_LOGIC",
+                      "GLYPH_ARRAY"
+                  ],
+    "activated":  "2026-03-10 16:48:15",
+    "title":  "The Magician"
+}

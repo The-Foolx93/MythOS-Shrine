@@ -5,10 +5,13 @@
  * – Static UI serving (Shrine/)
  */
 
+require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+
 const path      = require('path');
 const express   = require('express');
 const http      = require('http');
 const WebSocket = require('ws');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 ////////////////////////////////////////////////////////////////////////////////
 // 1) Build Express app + HTTP server
@@ -16,6 +19,11 @@ const WebSocket = require('ws');
 
 const app    = express();
 const server = http.createServer(app);
+
+// Initialize Gemini
+const genAI = process.env.GEMINI_API_KEY 
+  ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+  : null;
 
 ////////////////////////////////////////////////////////////////////////////////
 // 2) REST API endpoints
@@ -27,6 +35,31 @@ app.get('/api/status', (req, res) => {
     status:    'OK',
     timestamp: Date.now()
   });
+});
+
+// Gemini generation endpoint
+app.post('/generate', express.json(), async (req, res) => {
+  try {
+    if (!genAI) {
+      return res.status(500).json({ 
+        error: 'Gemini API key not configured. Set GEMINI_API_KEY in .env' 
+      });
+    }
+
+    const { prompt } = req.body;
+    if (!prompt) {
+      return res.status(400).json({ error: 'Missing prompt' });
+    }
+
+    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const result = await model.generateContent(prompt);
+    const text = result.response.text();
+
+    res.json({ text });
+  } catch (err) {
+    console.error('Gemini error:', err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // TODO: add more app.get / app.post routes here as needed

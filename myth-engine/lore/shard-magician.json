@@ -1,0 +1,12 @@
+{
+    "status":  "PRIMED",
+    "capabilities":  [
+                         "GLYPH_DECODE",
+                         "WILL_REDIRECTION"
+                     ],
+    "sector_origin":  1,
+    "logic_class":  "Manifestation",
+    "type":  "Artifact",
+    "title":  "Magician Shard",
+    "shard_integrity":  100
+}

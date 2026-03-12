@@ -1,0 +1,15 @@
+{
+    "version":  "1.1.1",
+    "elements":  [
+                     "Air",
+                     "Steel"
+                 ],
+    "class":  "Balancer",
+    "arcana":  11,
+    "protocols":  [
+                      "EQUILIBRIUM_CHECK",
+                      "ERROR_LOGIC"
+                  ],
+    "activated":  "2026-03-10 16:55:55",
+    "title":  "Justice"
+}

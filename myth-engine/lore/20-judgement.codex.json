@@ -1,0 +1,15 @@
+{
+    "version":  "1.2.0",
+    "elements":  [
+                     "Fire",
+                     "Air"
+                 ],
+    "class":  "Audit",
+    "arcana":  20,
+    "protocols":  [
+                      "SYSTEM_VALIDATION",
+                      "FINAL_RECKONING"
+                  ],
+    "activated":  "2026-03-10 16:59:47",
+    "title":  "Judgement"
+}

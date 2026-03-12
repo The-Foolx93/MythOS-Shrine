@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.2",
+    "elements":  [
+                     "Water",
+                     "Moon"
+                 ],
+    "class":  "Guardian",
+    "arcana":  2,
+    "protocols":  [
+                      "DATABASE_VEIL",
+                      "ENCRYPT_INTUITION"
+                  ],
+    "activated":  "2026-03-10 16:48:50",
+    "title":  "The High Priestess"
+}

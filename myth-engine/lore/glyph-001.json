@@ -1,0 +1,8 @@
+{
+    "id":  "G-001",
+    "name":  "NULL_VOID",
+    "encryption":  "DECRYPTED",
+    "requirement":  "MAGICIAN_SHARD_INJECTION",
+    "layer":  "Logic_Gate",
+    "status":  "UNLOCKED"
+}

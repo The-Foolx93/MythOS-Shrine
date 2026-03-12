@@ -1,0 +1,15 @@
+{
+    "version":  "1.1.8",
+    "elements":  [
+                     "Water",
+                     "Shadow"
+                 ],
+    "class":  "Encryption",
+    "arcana":  18,
+    "protocols":  [
+                      "DATA_MASKING",
+                      "HIDDEN_LOGIC"
+                  ],
+    "activated":  "2026-03-10 16:58:57",
+    "title":  "The Moon"
+}

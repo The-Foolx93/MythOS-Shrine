@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.3",
+    "elements":  [
+                     "Earth",
+                     "Nature"
+                 ],
+    "class":  "Nurturer",
+    "arcana":  3,
+    "protocols":  [
+                      "ENV_RENDER",
+                      "BIO_LOGIC"
+                  ],
+    "activated":  "2026-03-10 16:49:28",
+    "title":  "The Empress"
+}

@@ -1,0 +1,15 @@
+{
+    "version":  "1.1.2",
+    "elements":  [
+                     "Water",
+                     "Time"
+                 ],
+    "class":  "Suspender",
+    "arcana":  12,
+    "protocols":  [
+                      "STATE_PAUSE",
+                      "ASYNC_WAIT"
+                  ],
+    "activated":  "2026-03-10 16:56:18",
+    "title":  "The Hanged Man"
+}

@@ -1,0 +1,14 @@
+{
+    "version":  "1.0.0",
+    "elements":  [
+                     "Void",
+                     "Air"
+                 ],
+    "class":  "Origin",
+    "arcana":  0,
+    "protocols":  [
+                      "INIT_JOURNEY"
+                  ],
+    "activated":  "2026-03-10 16:46:01",
+    "title":  "The Fool"
+}
